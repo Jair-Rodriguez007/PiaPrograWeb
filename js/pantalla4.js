@@ -29,20 +29,20 @@ $(document).ready(function() {
 
     $('#btnCarrito').click(function() {
     var idLibro = params.get('idLibro');
-    var idUsuario = params.get('idUsuario');
+    //var idUsuario = params.get('idUsuario');
     var cantidad = $('#quantity').val();
     console.log("Esta es la variable idLibro: "+idLibro);
-    console.log("Esta es la variable idUsuario: "+idUsuario);
+    //console.log("Esta es la variable idUsuario: "+idUsuario);
     console.log("Esta es la variable cantidad: "+cantidad);
     $.ajax({
-        url: 'agregar-carrito.php',
+        url: '/PiaPrograWeb/php/agregarCarrito.php',
         type: 'POST',
         data: { 
             idLibro: idLibro,
-            idUsuario: idUsuario,
             cantidad: cantidad
         },
         success: function(response) {
+            console.log(response);
             alert('Libro añadido al carrito exitosamente');
         },
         error: function(error) {
