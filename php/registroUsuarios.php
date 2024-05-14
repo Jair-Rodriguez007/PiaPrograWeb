@@ -18,6 +18,6 @@ if(isset($_POST)){
     } else {
         echo "Error: " . $sql . "<br>" . $conexion->error;
     }
-    header('Location: index.html');
+    header('Location: /PiaPrograWeb/html/index.html');
 }
 ?>

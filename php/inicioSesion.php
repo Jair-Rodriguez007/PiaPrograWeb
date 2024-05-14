@@ -21,7 +21,7 @@ if(isset($_POST)){
     // Obtener el ID_usuario
     $row = $result->fetch_assoc();
     $_SESSION['id'] = $row['IdUsuario'];
-    header("Location: pantalla3.html"); // Redirigir a la siguiente página
+    header("Location: /PiaPrograWeb/html/pantalla3.html"); // Redirigir a la siguiente página
   } else {
     // El usuario no existe
     echo "Usuario o contraseña incorrectos";
