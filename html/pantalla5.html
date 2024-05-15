@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>Carrito de compra - Biblioteca FIME</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="index.html">Biblioteca FIME</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Perfil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Carrito</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Facebook</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Instagram</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Maps</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <h2>Buscar libros</h2>
+        <form action="/search" method="get">
+            <div class="form-group">
+                <input type="text" class="form-control" id="search" name="search" placeholder="Buscar libros...">
+            </div>
+            <button type="submit" class="btn btn-primary">Buscar</button>
+        </form>
+        <hr>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6" id="carrito">
+                <h2>Carrito de compra</h2>
+                <!-- Aquí puedes agregar la lista de los libros añadidos al carrito -->
+            </div>
+            <div class="col-md-6">
+                <h2>Detalles del pedido</h2>
+                <form action="/confirm-order" method="post">
+                    <div class="form-group">
+                        <label for="name">Entregar a:</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Nombre del usuario" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Domicilio:</label>
+                        <select class="form-control" id="address" name="address">
+                            <option value="Seleccion">Seleccione su domicilio</option>
+                        </select>
+                        <!-- Botón para abrir el modal -->
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                            Abrir modal
+                        </button>
+                    </div>
+                    <div class="form-group">
+                        <label for="payment-method">Tarjetas:</label>
+                        <select class="form-control" id="payment-method" name="payment-method">
+                            <!-- Aquí puedes agregar las opciones disponibles como método de pago -->
+                            <option value="Seleccion">Seleccione su tarjeta</option>
+                            <!-- ... -->
+                        </select>
+                        <!-- Botón para abrir el modal -->
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal2">
+                            Abrir modal
+                        </button>
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="btnConfirmar">Confirmar</button>
+                    <!-- Modal Domicilio-->
+                    <div class="modal fade" id="myModal">
+                    <div class="modal-dialog">
+                    <div class="modal-content">
+                    <!-- Encabezado del modal -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Agregar domicilio</h4>
+                        <button type="button" class="close" data-dismiss="modal">×</button>
+                    </div>  
+                    <!-- Cuerpo del modal -->
+                    <div class="modal-body">
+                        <form action="/ruta/a/tu/script.php" method="post">
+                            <div class="form-group">
+                                <label for="calle">Calle:</label>
+                                <input type="text" class="form-control" id="calle" name="calle" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="estado">Estado:</label>
+                                <input type="text" class="form-control" id="estado" name="estado" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="pais">País:</label>
+                                <input type="text" class="form-control" id="pais" name="pais" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="numeroExt">Número exterior:</label>
+                                <input type="number" class="form-control" id="numeroExt" name="numeroExt" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="numeroInt">Número interior:</label>
+                                <input type="number" class="form-control" id="numeroInt" name="numeroInt" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                        </form>
+                    </div>  
+                    <!-- Pie de página del modal -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                    </div>  
+                    </div>
+                    </div>
+                    </div>
+                    <!-- Modal Tarjetas-->
+                    <div class="modal fade" id="myModal2">
+                        <div class="modal-dialog">
+                        <div class="modal-content">
+                        <!-- Encabezado del modal -->
+                        <div class="modal-header">
+                            <h4 class="modal-title">Agregar Tarjeta</h4>
+                            <button type="button" class="close" data-dismiss="modal">×</button>
+                        </div>  
+                        <!-- Cuerpo del modal -->
+                        <div class="modal-body">
+                            <form action="/ruta/a/tu/script.php" method="post">
+                                <div class="form-group">
+                                    <label for="numTarjeta">Número de tarjeta:</label>
+                                    <input type="number" class="form-control" id="numTarjeta" name="numTarjeta" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="fechaExp">Fecha de expiración:</label>
+                                    <input type="date" class="form-control" id="fechaExp" name="fechaExp" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cvv">CVV:</label>
+                                    <input type="number" class="form-control" id="cvv" name="cvv" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Guardar</button>
+                            </form>
+                        </div>  
+                        <!-- Pie de página del modal -->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                        </div>  
+                        </div>
+                        </div>
+                        </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+    crossorigin="anonymous"referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="/PiaPrograWeb/js/pantalla5.js"></script>
+</body>
+</html>
