@@ -9,11 +9,11 @@
 
     if(isset($_POST)){
         $idUsuario = $_SESSION['id'];
-        $calle = $_POST['calle'];
-        $estado = $_POST['estado'];
-        $pais = $_POST['pais'];
-        $numeroExt = intval($_POST['numeroExt']);
-        $numeroInt = intval($_POST['numeroInt']);        
+        $calle = $_POST['Calle'];
+        $estado = $_POST['Estado'];
+        $pais = $_POST['Pais'];
+        $numeroExt = $_POST['NumeroExt'];   
+        $numeroInt = $_POST['NumeroInt'];     
 
         echo "El id del usuario es: ".$idUsuario;
 

@@ -1,9 +1,9 @@
 //Agregar domicilio
-$("#agregarDomicilio").click(function(){
+/*$("#agregarDomicilio").click(function(){
     $("#myModal").modal('show');
-});
+});*/
 
 //Agregar tarjeta
-$("#agregarTarjeta").click(function(){
+/*$("#agregarTarjeta").click(function(){
     $("#myModal2").modal('show');
-});
+});*/

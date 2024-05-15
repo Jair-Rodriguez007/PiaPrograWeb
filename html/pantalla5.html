@@ -62,7 +62,7 @@
                             <option value="Seleccion">Seleccione su domicilio</option>
                         </select>
                         <!-- Botón para abrir el modal -->
-                        <button type="button" id="agregarDomicilio" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                        <button type="button" id="agregarDomicilio" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal3">
                             Agregar domicilio
                         </button>
                     </div>
@@ -74,54 +74,11 @@
                             <!-- ... -->
                         </select>
                         <!-- Botón para abrir el modal -->
-                        <button type="button" id="agregarTarjeta" class="btn btn-primary" data-toggle="modal" data-target="#myModal2">
+                        <button type="button" id="agregarTarjeta" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal2">
                             Agregar tarjeta
                         </button>
                     </div>
                     <button type="submit" class="btn btn-primary" id="btnConfirmar">Confirmar</button>
-                    <!-- Modal Domicilio-->
-                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <!-- Encabezado del modal -->
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="myModalLabel">Agregar domicilio</h5>
-                                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">×</span>
-                                    </button>
-                                </div>  
-                                <!-- Cuerpo del modal /PiaPrograWeb/php/agregarDomicilio.php -->
-                                <div class="modal-body">
-                                    <form action="/PiaPrograWeb/php/agregarDomicilio.php" method="post">
-                                        <div class="form-group">
-                                            <label for="calle">Calle:</label>
-                                            <input type="text" class="form-control" id="calle" name="calle" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="estado">Estado:</label>
-                                            <input type="text" class="form-control" id="estado" name="estado" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="pais">País:</label>
-                                            <input type="text" class="form-control" id="pais" name="pais" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="numeroExt">Número exterior:</label>
-                                            <input type="number" class="form-control" id="numeroExt" name="numeroExt" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="numeroInt">Número interior:</label>
-                                            <input type="number" class="form-control" id="numeroInt" name="numeroInt" required>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                            <button type="submit" class="btn btn-primary">Guardar</button>
-                                        </div>
-                                    </form>
-                                </div>  
-                            </div>
-                        </div>
-                    </div>
                     <!-- Modal Tarjeta-->
                     <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
@@ -147,6 +104,49 @@
                                         <div class="form-group">
                                             <label for="cvv">CVV:</label>
                                             <input type="number" class="form-control" id="cvv" name="cvv" required>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                            <button type="submit" class="btn btn-primary">Guardar</button>
+                                        </div>
+                                    </form>
+                                </div>  
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Modal Domicilio 2-->
+                    <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <!-- Encabezado del modal -->
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="myModalLabel">Agregar domicilio</h5>
+                                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">×</span>
+                                    </button>
+                                </div>  
+                                <!-- Cuerpo del modal -->
+                                <div class="modal-body">
+                                    <form action="/PiaPrograWeb/php/agregarDomicilio.php" method="post">
+                                        <div class="form-group">
+                                            <label for="Calle">Calle:</label>
+                                            <input type="text" class="form-control" id="Calle" name="Calle" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="Estado">Estado:</label>
+                                            <input type="text" class="form-control" id="Estado" name="Estado" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="Pais">País:</label>
+                                            <input type="text" class="form-control" id="Pais" name="Pais" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="NumeroExt">Número exterior:</label>
+                                            <input type="number" class="form-control" id="NumeroExt" name="NumeroExt" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="NumeroInt">Número interior:</label>
+                                            <input type="number" class="form-control" id="NumeroInt" name="NumeroInt" required>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
