@@ -30,7 +30,24 @@ function traerTarjeta() {
     });
 }
 
+function traerCarrito() {
+    $.ajax({
+        url:"/PiaPrograWeb/php/getCarrito.php",
+        type:'GET',
+        dataType:'json',
+        crossDomain:true
+    }).done(function(result) {
+        $(result).each(function(index) {
+            $('#carrito').append('<p>' + this.Titulo + ': ' + this.Cantidad + '</p><button class="eliminar" data-id="' + this.IdProducto + '">Eliminar</button>');
+        });
+        console.log(result);
+    }).fail(function(xhr, status, error) {
+        alert(error)
+    });
+}
+
 $(document).ready(function() {
     traerDomicilio();
     traerTarjeta();
+    traerCarrito();
 });
