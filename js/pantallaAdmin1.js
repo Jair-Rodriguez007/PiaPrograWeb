@@ -33,7 +33,7 @@ $.ajax({
         $(document).on('click', '#btnEntregado', function() {
             var IdVenta = $(this).data('IdVenta'); // Recupera el ID_compra del botón
             $.ajax({
-                url: 'entregarPedido.php',
+                url: '/PiaPrograWeb/php/entregarPedido.php',
                 type: 'POST',
                 data: {
                     'IdVenta': IdVenta
