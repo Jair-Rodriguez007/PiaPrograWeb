@@ -1,9 +1,19 @@
-//Agregar domicilio
-/*$("#agregarDomicilio").click(function(){
-    $("#myModal").modal('show');
-});*/
+function traerDomicilio() {
+    $.ajax({
+        url:"/PiaPrograWeb/php/getDomicilios.php",
+        type:'GET',
+        dataType:'json',
+        crossDomain:true
+    }).done(function(result) {
+        $(result).each(function(index) {
+            $("#address").append(`<option value="${this.IdDomicilio}">${this.Calle}</option>`);
+        });
+        console.log(result);
+    }).fail(function(xhr, status, error) {
+        alert(error)
+    });
+}
 
-//Agregar tarjeta
-/*$("#agregarTarjeta").click(function(){
-    $("#myModal2").modal('show');
-});*/
+$(document).ready(function() {
+    traerDomicilio();
+});
