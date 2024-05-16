@@ -52,11 +52,11 @@ $.ajax({
             var IdVenta = $(this).data('IdVenta'); // Recupera el ID_compra del botón
             console.log(IdVenta);
             $.ajax({
-                url: 'cancelarPedido.php',
+                url: '/PiaPrograWeb/php/cancelarPedido.php',
                 type: 'POST',
                 data: { 'IdVenta': IdVenta },
                 success: function(response) {
-                    alert('El estado del pedido ha sido cancelado');
+                    alert('El estado del pedido ha sido cambiado a cancelado');
                 },
                 error: function() {
                     alert('Hubo un error al cancelar el pedido');
