@@ -53,4 +53,41 @@
             echo "Error: " . $sql . "<br>" . $conexion->error;
         }
     }
+
+    // Obtén el IdVenta de la venta recién insertada
+    $idVenta = $conexion->insert_id;
+
+    // Suponiendo que $conexion es tu objeto de conexión a la base de datos
+    // y que $idUsuario es el ID del usuario actual
+
+    $sql = "SELECT * FROM Carrito WHERE IdUsuario = $idUsuario";
+    $resultado = $conexion->query($sql);
+
+    $carrito = array();
+    while ($row = $resultado->fetch_assoc()) {
+        $carrito[] = $row;
+    }
+
+    // Ahora, para cada producto en el carrito del usuario, inserta un detalle de venta
+    foreach ($carrito as $item) {
+        $idProducto = $item['IdProducto'];
+        $cantidad = $item['Cantidad'];
+
+        // Obtén el precio del producto de la tabla Producto
+        $sqlPrecio = "SELECT Precio FROM Producto WHERE IdProducto = $idProducto";
+        $resultadoPrecio = $conexion->query($sqlPrecio);
+        if ($rowPrecio = $resultadoPrecio->fetch_assoc()) {
+            $precio = $rowPrecio['Precio'];
+        } else {
+            echo "No se pudo obtener el precio del producto con IdProducto = $idProducto";
+            exit;
+        }
+
+        // Inserta el detalle de venta
+        $sqlDetalle = "INSERT INTO DetalleVenta (IdVenta, IdProducto, Cantidad, Precio) 
+                    VALUES ($idVenta, $idProducto, $cantidad, $precio)";
+        if ($conexion->query($sqlDetalle) !== TRUE) {
+            echo "Error: " . $sqlDetalle . "<br>" . $conexion->error;
+        }
+    }
 ?>
