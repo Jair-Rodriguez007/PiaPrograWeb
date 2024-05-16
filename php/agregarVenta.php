@@ -90,4 +90,5 @@
             echo "Error: " . $sqlDetalle . "<br>" . $conexion->error;
         }
     }
+    header("Location: /PiaPrograWeb/php/eliminarCarrito.php");
 ?>

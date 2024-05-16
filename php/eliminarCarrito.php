@@ -8,21 +8,13 @@
         die("Connection failed: " . $conexion->connect_error);
     }
     
-    if(isset($_POST)) {
-        $idUsuario = $_SESSION['id'];
-        $eliminarTodo = isset($_POST['eliminarTodo']) ? $_POST['eliminarTodo'] : false;
+    $idUsuario = $_SESSION['id'];
     
-        if($eliminarTodo) {
-            $sql = "DELETE FROM Carrito WHERE IdUsuario = $idUsuario";
-        } else {
-            $idLibro = $_POST['IdProducto'];
-            $sql = "DELETE FROM Carrito WHERE IdUsuario = $idUsuario AND IdProducto = $idLibro";
-        }
+    $sql = "DELETE FROM Carrito WHERE IdUsuario = $idUsuario";
     
-        if ($conexion->query($sql) === TRUE) {
-            echo "Se han eliminado los productos del usuario";
-        } else {
-            echo "Error: " . $sql . "<br>" . $conexion->error;
-        }
+    if ($conexion->query($sql) === TRUE) {
+        echo "Se han eliminado los productos del usuario";
+    } else {
+        echo "Error: " . $sql . "<br>" . $conexion->error;
     }
 ?>
