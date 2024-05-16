@@ -61,10 +61,6 @@
                         <select class="form-control" id="address" name="address">
                             <option selected value="">Selecciona el domicilio...</option>
                         </select>
-                        <!-- Botón para abrir el modal -->
-                        <button type="button" id="agregarDomicilio" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal3">
-                            Agregar domicilio
-                        </button>
                     </div>
                     <div class="form-group">
                         <label for="payment-method">Tarjetas:</label>
@@ -73,91 +69,9 @@
                             <option selected value="">Selecciona la tarjeta...</option>
                             <!-- ... -->
                         </select>
-                        <!-- Botón para abrir el modal -->
-                        <button type="button" id="agregarTarjeta" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal2">
-                            Agregar tarjeta
-                        </button>
                     </div>
                     <button type="submit" class="btn btn-primary" id="btnConfirmar">Confirmar</button>
                 </form>
-            </div>
-        </div>
-    </div>
-    <!-- Modal Tarjeta-->
-    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <!-- Encabezado del modal -->
-                <div class="modal-header">
-                    <h5 class="modal-title" id="myModalLabel">Agregar tarjeta</h5>
-                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>  
-                <!-- Cuerpo del modal -->
-                <div class="modal-body">
-                    <form action="/PiaPrograWeb/php/agregarTarjeta.php" method="post">
-                        <div class="form-group">
-                            <label for="numTarjeta">Número de la tarjeta:</label>
-                            <input type="number" class="form-control" id="numTarjeta" name="numTarjeta" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="fechaExp">Fecha de expiración:</label>
-                            <input type="date" class="form-control" id="fechaExp" name="fechaExp" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="cvv">CVV:</label>
-                            <input type="number" class="form-control" id="cvv" name="cvv" required>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                            <button type="submit" class="btn btn-primary">Guardar</button>
-                        </div>
-                    </form>
-                </div>  
-            </div>
-        </div>
-    </div>
-    <!-- Modal Domicilio 2-->
-    <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <!-- Encabezado del modal -->
-                <div class="modal-header">
-                    <h5 class="modal-title" id="myModalLabel">Agregar domicilio</h5>
-                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>  
-                <!-- Cuerpo del modal -->
-                <div class="modal-body">
-                    <form action="/PiaPrograWeb/php/agregarDomicilio.php" method="post">
-                        <div class="form-group">
-                            <label for="Calle">Calle:</label>
-                            <input type="text" class="form-control" id="Calle" name="Calle" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="Estado">Estado:</label>
-                            <input type="text" class="form-control" id="Estado" name="Estado" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="Pais">País:</label>
-                            <input type="text" class="form-control" id="Pais" name="Pais" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="NumeroExt">Número exterior:</label>
-                            <input type="number" class="form-control" id="NumeroExt" name="NumeroExt" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="NumeroInt">Número interior:</label>
-                            <input type="number" class="form-control" id="NumeroInt" name="NumeroInt" required>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                            <button type="submit" class="btn btn-primary">Guardar</button>
-                        </div>
-                    </form>
-                </div>  
             </div>
         </div>
     </div>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Importamos el CSS de Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"crossorigin="anonymous">
+    <title>Perfil del cliente - Biblioteca FIME</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="index.html">Biblioteca FIME</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Perfil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Carrito</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Facebook</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Instagram</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Maps</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Configuración del perfil</h2>
+                <form action="/update-profile" method="post">
+                    <div class="form-group">
+                        <label for="name">Nombre:</label>
+                        <input type="text" class="form-control" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Domicilio:</label>
+                        <select class="form-control" id="address" name="address">
+                            <option selected value="">Selecciona el domicilio...</option>
+                        </select>
+                        <!-- Botón para abrir el modal -->
+                        <button type="button" id="agregarDomicilio" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal3">
+                            Agregar domicilio
+                        </button>
+                    </div>
+                    <div class="form-group">
+                        <label for="payment-method">Tarjetas:</label>
+                        <select class="form-control" id="payment-method" name="payment-method">
+                            <!-- Aquí puedes agregar las opciones disponibles como método de pago -->
+                            <option selected value="">Selecciona la tarjeta...</option>
+                            <!-- ... -->
+                        </select>
+                        <!-- Botón para abrir el modal -->
+                        <button type="button" id="agregarTarjeta" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal2">
+                            Agregar tarjeta
+                        </button>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Correo electrónico:</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Contraseña:</label>
+                        <input type="password" class="form-control" id="password" name="password">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                </form>
+            </div>
+            <div class="col-md-6" id="historial">
+                <h2>Historial de pedidos</h2>
+                <!-- Aquí puedes agregar el historial de pedidos del cliente -->
+            </div>
+        </div>
+    </div>
+    <!-- Modal Tarjeta-->
+    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <!-- Encabezado del modal -->
+                <div class="modal-header">
+                    <h5 class="modal-title" id="myModalLabel">Agregar tarjeta</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>  
+                <!-- Cuerpo del modal -->
+                <div class="modal-body">
+                    <form action="/PiaPrograWeb/php/agregarTarjeta.php" method="post">
+                        <div class="form-group">
+                            <label for="numTarjeta">Número de la tarjeta:</label>
+                            <input type="number" class="form-control" id="numTarjeta" name="numTarjeta" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="fechaExp">Fecha de expiración:</label>
+                            <input type="date" class="form-control" id="fechaExp" name="fechaExp" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cvv">CVV:</label>
+                            <input type="number" class="form-control" id="cvv" name="cvv" required>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                        </div>
+                    </form>
+                </div>  
+            </div>
+        </div>
+    </div>
+    <!-- Modal Domicilio 2-->
+    <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <!-- Encabezado del modal -->
+                <div class="modal-header">
+                    <h5 class="modal-title" id="myModalLabel">Agregar domicilio</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>  
+                <!-- Cuerpo del modal -->
+                <div class="modal-body">
+                    <form action="/PiaPrograWeb/php/agregarDomicilio.php" method="post">
+                        <div class="form-group">
+                            <label for="Calle">Calle:</label>
+                            <input type="text" class="form-control" id="Calle" name="Calle" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="Estado">Estado:</label>
+                            <input type="text" class="form-control" id="Estado" name="Estado" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="Pais">País:</label>
+                            <input type="text" class="form-control" id="Pais" name="Pais" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="NumeroExt">Número exterior:</label>
+                            <input type="number" class="form-control" id="NumeroExt" name="NumeroExt" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="NumeroInt">Número interior:</label>
+                            <input type="number" class="form-control" id="NumeroInt" name="NumeroInt" required>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                        </div>
+                    </form>
+                </div>  
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!--Importamos JQuery-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous"referrerpolicy="no-referrer"></script>
+    <!--Importamos el JS de Bootstrap-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="/PiaPrograWeb/js/pantalla5.js"></script>
+    <script src="/PiaPrograWeb/js/pantalla6.js"></script>
+</body>
+</html>
