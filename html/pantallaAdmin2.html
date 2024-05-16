@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Importamos el CSS de Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"crossorigin="anonymous">
+    <title>Historial de pedidos - Biblioteca FIME</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Historial de pedidos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Agregar bibliotecario</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Agregar/Modificar libros</a>
+                </li>
+            </ul>
+        </div>
+        <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Logout</button>
+    </nav>
+    <div class="container">
+        <h2>Historial de pedidos</h2>
+        <form action="/PiaPrograWeb/php/buscarCompras.php" method="get">
+            <div class="form-group">
+                <label for="start-date">Fecha de inicio:</label>
+                <input type="date" class="form-control" id="start-date" name="start-date">
+            </div>
+            <div class="form-group">
+                <label for="end-date">Fecha final:</label>
+                <input type="date" class="form-control" id="end-date" name="end-date">
+            </div>
+            <div class="form-group">
+                <label for="book-name">Nombre del libro:</label>
+                <input type="text" class="form-control" id="book-name" name="book-name" placeholder="Buscar por nombre del libro...">
+            </div>
+            <button type="submit" class="btn btn-primary">Buscar</button>
+        </form>
+        <hr>
+        <h2>Ventas registradas</h2>
+        <ul id="lista-libros">
+            <!-- Aquí se agregarán los libros encontrados -->
+        </ul>
+    </div>
+    <!--Importamos JQuery-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous"referrerpolicy="no-referrer"></script>
+    <!--Importamos el JS de Bootstrap-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="/PiaPrograWeb/js/pantallaAdmin2.js"></script>
+</body>
+</html>
