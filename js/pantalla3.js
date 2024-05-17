@@ -63,9 +63,3 @@ document.getElementById('search').addEventListener('input', function() {
     }
     xhr.send();
 });
-
-/*document.getElementById('suggestions').addEventListener('click', function(e) {
-    if(e.target && e.target.nodeName == "OPTION") {
-        window.location.href = '/PiaPrograWeb/html/pantalla4.html?idLibro=' + e.target.value;
-    }
-});*/
