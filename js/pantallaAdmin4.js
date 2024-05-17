@@ -10,7 +10,7 @@ $('#btnBuscar').click(function(event) {
             var book = books[i];
             console.log(book);
             var bookElement = $('<div>').text(book.Titulo);
-            var editButton = $('<button>').text('Editar').addClass('btn btn-primary edit-button').attr('data-book-id', book.ID_obra).attr('data-toggle', 'modal').attr('data-target', '#editBookModal');
+            var editButton = $('<button>').text('Editar').addClass('btn btn-primary edit-button').attr('data-book-id', book.IdProducto).attr('data-toggle', 'modal').attr('data-target', '#editBookModal');
             bookElement.append(editButton);
             $('#divContenedor').append(bookElement);
         }
@@ -21,11 +21,11 @@ $('#btnBuscar').click(function(event) {
             $('#editBookModal').attr('data-book-id', bookId);
             $('#editBookModal').modal('show');
 
-                $('#editName').val(books[0].titulo);
-                $('#editDescription').val(books[0].descripcion);
-                $('#editPrice').val(books[0].precio);
-                $('#editCategory').val(books[0].categoria_principal);
-                $('#editQuantity').val(books[0].cantidad_inventario);
+                $('#editName').val(books[0].Titulo);
+                $('#editDescription').val(books[0].Descripcion);
+                $('#editPrice').val(books[0].Precio);
+                $('#editCategory').val(books[0].CategoriaPrincipal);
+                $('#editQuantity').val(books[0].CantidadInventario);
                 $('#bookId').val(bookId);
         });
     });
