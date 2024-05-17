@@ -41,3 +41,31 @@ function generarHTML(libro) {
     );
     return libroHTML;
 }
+
+//Código para buscar libros
+
+document.getElementById('search').addEventListener('input', function() {
+    var searchQuery = this.value;
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', '/PiaPrograWeb/php/suggest.php?search=' + searchQuery, true);
+    xhr.onload = function() {
+        if (this.status == 200) {
+            var data = JSON.parse(this.responseText);
+            var suggestions = document.getElementById('suggestions');
+            suggestions.innerHTML = '';
+            data.forEach(function(item) {
+                var a = document.createElement('a');
+                a.textContent = item.Titulo;
+                a.href = '/PiaPrograWeb/html/pantalla4.html?idLibro=' + item.IdProducto;
+                suggestions.appendChild(a);
+            });
+        }
+    }
+    xhr.send();
+});
+
+/*document.getElementById('suggestions').addEventListener('click', function(e) {
+    if(e.target && e.target.nodeName == "OPTION") {
+        window.location.href = '/PiaPrograWeb/html/pantalla4.html?idLibro=' + e.target.value;
+    }
+});*/

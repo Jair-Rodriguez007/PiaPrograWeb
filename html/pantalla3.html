@@ -34,12 +34,10 @@
     </nav>
     <div class="container">
         <h2>Buscar libros</h2>
-        <form action="/search" method="get">
-            <div class="form-group">
-                <input type="text" class="form-control" id="search" name="search" placeholder="Buscar libros...">
-            </div>
-            <button type="submit" class="btn btn-primary">Buscar</button>
-        </form>
+        <div class="form-group">
+            <input type="text" class="form-control" id="search" name="search" placeholder="Buscar libros...">
+            <div id="suggestions" class="suggestions-box"></div>
+        </div>
         <hr>
         <h2>Novedades</h2>
         <div class="row" id="recientes">
