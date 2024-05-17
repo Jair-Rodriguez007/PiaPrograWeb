@@ -43,20 +43,28 @@ if (isset($_GET['id'])) {
     header('Content-Type: application/json');
     echo json_encode($libro);
 } else {
-    // Si no se proporciona un ID, selecciona todos los libros
-    $sql = "SELECT * FROM Producto";
-    $result = $conexion->query($sql);
-    $libros = array();
-    if ($result->num_rows > 0) {
-        // output data of each row
-        while($row = $result->fetch_assoc()) {
-            $libros[] = $row;
+    // Obtén los libros más recientes
+    $sql_recientes = "SELECT * FROM Producto ORDER BY FechaAgregado DESC LIMIT 10";
+    $result_recientes = $conexion->query($sql_recientes);
+    $libros_recientes = array();
+    if ($result_recientes->num_rows > 0) {
+        while($row = $result_recientes->fetch_assoc()) {
+            $libros_recientes[] = $row;
         }
-        header('Content-Type: application/json');
-        echo json_encode($libros);
-    } else {
-        echo "0 results";
     }
+
+    // Obtén los libros más vistos
+    $sql_vistos = "SELECT Producto.*, COUNT(*) as visualizaciones FROM Producto JOIN VisualizacionLibro ON Producto.IdProducto = VisualizacionLibro.IdProducto GROUP BY Producto.IdProducto ORDER BY visualizaciones DESC LIMIT 1";
+    $result_vistos = $conexion->query($sql_vistos);
+    $libros_vistos = array();
+    if ($result_vistos->num_rows > 0) {
+        while($row = $result_vistos->fetch_assoc()) {
+            $libros_vistos[] = $row;
+        }
+    }
+
+    header('Content-Type: application/json');
+    echo json_encode(array('recientes' => $libros_recientes, 'vistos' => $libros_vistos));
 }
 $conexion->close();
 ?>
