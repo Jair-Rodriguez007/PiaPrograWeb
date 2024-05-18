@@ -51,5 +51,27 @@ $(document).ready(function() {
             }
         });
     });
+
+    //Establece el id del libro para los comentarios
     document.getElementById("idLibro").value = id;
+
+    $.ajax({
+        url: '/PiaPrograWeb/php/getComentarios.php',
+        type: 'GET',
+        data: {
+            id: id
+        },
+        dataType: 'json',
+        success: function(comentario) {
+            comentario.forEach(comentario => {
+                console.log(comentario.TextoComentario); // Muestra el texto del comentario en la consola
+                $('#comentarios').append(`<p>${comentario.TextoComentario}</p>`); // Inserta el título del comentario
+                // Puedes agregar más elementos HTML aquí según tus necesidades
+            });
+        },
+        error: function(error) {
+            console.log(error);
+            alert('Hubo un error al cargar los comentarios del libro. Por favor, inténtalo de nuevo más tarde.');
+        }
+    });
 });
