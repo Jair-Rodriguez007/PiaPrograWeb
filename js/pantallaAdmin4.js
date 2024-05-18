@@ -76,18 +76,18 @@ $(document).ready(function() {
           data.forEach((item, index) => {
             // Crear un nuevo elemento de columna
             let col = $(`<div class="col-md-4 mb-3">
-                        <div class="card">
-                        <div class="card-body">
-                            <p class="card-text">${item.NombreCategoria}</p>
-                            <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="checkbox-${item.IdCategoria}">
-                            <label class="form-check-label" for="checkbox-${item.IdCategoria}">
-                                Seleccionar
-                            </label>
-                            </div>
+                    <div class="card">
+                    <div class="card-body">
+                        <p class="card-text">${item.NombreCategoria}</p>
+                        <div class="form-check">
+                        <input class="form-check-input secondary-category" type="checkbox" id="checkbox-${item.IdCategoria}" value="${item.IdCategoria}">
+                        <label class="form-check-label" for="checkbox-${item.IdCategoria}">
+                            Seleccionar
+                        </label>
                         </div>
-                        </div>
-                    </div>`);
+                    </div>
+                    </div>
+                </div>`);
   
             // Agregar la columna a la fila actual
             row.append(col);
@@ -114,5 +114,14 @@ $(document).ready(function() {
   
     // Llamar a la función para cargar los elementos al cargar la página
     loadElements();
+    
+    // Manejar la selección de categorías secundarias
+    $('form').on('submit', function(event) {
+        let selectedCategories = [];
+        $('.secondary-category:checked').each(function() {
+        selectedCategories.push($(this).val());
+        });
+        $('#secondaryCategories').val(selectedCategories.join(','));
+    });
   });
   
