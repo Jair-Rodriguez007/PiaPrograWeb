@@ -24,7 +24,7 @@ $(document).ready(function() {
                 console.log(categoria);
                 $('#categoria-libro').append(', ' + categoria);
             });
-            $('#imagen-libro').attr('src', libro.imagen);
+            $('#imagen-libro').attr('src', libro.Imagen);
         },
         error: function(error) {
             console.log(error);

@@ -21,10 +21,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $imageDir = 'C:/xampp/htdocs/PiaPrograWeb/img/'; // Asegúrate de actualizar esta ruta
         $imagePath = $imageDir . $imageName;
 
+        // Ruta relativa para guardar en la base de datos
+        $relativeImagePath = '/PiaPrograWeb/img/' . $imageName;
+
         // Mueve el archivo subido a la ubicación deseada
         if (move_uploaded_file($imageTmpPath, $imagePath)) {
             // Actualiza el registro del libro con la nueva imagen
-            $sql = "UPDATE Producto SET Titulo = '$nombre', Descripcion = '$descripcion', CategoriaPrincipal = $categoria, Precio = $precio, CantidadInventario = $cantidad, Imagen = '$imagePath' WHERE IdProducto = $id";
+            $sql = "UPDATE Producto SET Titulo = '$nombre', Descripcion = '$descripcion', CategoriaPrincipal = $categoria, Precio = $precio, CantidadInventario = $cantidad, Imagen = '$relativeImagePath' WHERE IdProducto = $id";
         } else {
             echo "Error al mover el archivo subido.";
             exit();
