@@ -30,3 +30,89 @@ $('#btnBuscar').click(function(event) {
         });
     });
 });
+
+function traerCategorias() {
+    $.ajax({
+        url:"/PiaPrograWeb/php/getCategorias.php",
+        type:'GET',
+        dataType:'json'
+    }).done(function(result) {
+        $(result).each(function(index) {
+            console.log(this.NombreCategoria);
+            $("#category").append(`<option value="${this.IdCategoria}">${this.NombreCategoria}</option>`);
+            $("#editCategory").append(`<option value="${this.IdCategoria}">${this.NombreCategoria}</option>`);
+        });
+        console.log(result);
+    }).fail(function(xhr, status, error) {
+        alert(error)
+    });
+}
+
+$(document).ready(function() {
+    traerCategorias();;
+    // Función para cargar los elementos
+    function loadElements() {
+      $.ajax({
+        url: '/PiaPrograWeb/php/getCategorias.php', // Reemplaza con la URL de tu API
+        method: 'GET',
+        dataType: 'json',
+        success: function(data) {
+            console.log(data);
+          // Ordena los registros por el value del ID
+          data.sort((a, b) => a.IdCategoria - b.IdCategoria);
+  
+          let container = $('#dynamic-container');
+          container.empty(); // Limpiamos el contenedor por si ya hay contenido
+  
+          // Variables para controlar las filas y columnas
+          let columnIndex = 0;
+          let rowIndex = 0;
+  
+          // Crear una fila inicial
+          let row = $('<div class="row"></div>');
+          container.append(row);
+  
+          // Iterar sobre los datos
+          data.forEach((item, index) => {
+            // Crear un nuevo elemento de columna
+            let col = $(`<div class="col-md-4 mb-3">
+                        <div class="card">
+                        <div class="card-body">
+                            <p class="card-text">${item.NombreCategoria}</p>
+                            <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="checkbox-${item.IdCategoria}">
+                            <label class="form-check-label" for="checkbox-${item.IdCategoria}">
+                                Seleccionar
+                            </label>
+                            </div>
+                        </div>
+                        </div>
+                    </div>`);
+  
+            // Agregar la columna a la fila actual
+            row.append(col);
+  
+            // Incrementar el índice de columna
+            columnIndex++;
+  
+            // Si tenemos 3 columnas, reiniciamos el índice de columna y creamos una nueva fila
+            if (columnIndex === 3) {
+              columnIndex = 0;
+              rowIndex++;
+              if (rowIndex < 5) {
+                row = $('<div class="row"></div>');
+                container.append(row);
+              }
+            }
+          });
+        },
+        error: function(error) {
+          console.error('Error al cargar los elementos:', error);
+        }
+      });
+    }
+  
+    // Llamar a la función para cargar los elementos al cargar la página
+    loadElements();
+  });
+  

@@ -29,12 +29,15 @@
                     <div class="form-group">
                         <label for="category">Categoría:</label>
                         <select class="form-control" id="category" name="category">
-                            <!-- Aquí puedes agregar las opciones de categorías -->
-                            <option value="1">Accion y Aventura</option>
-                            <option value="2">Clásicos</option>
-                            <option value="3">Horror</option>
-                            <!-- ... -->
+                            <option selected value="">Selecciona la categoria...</option>
                         </select>
+                    </div>
+                    <!--Contenedor para las categorías secundarias-->
+                    <div class="container mt-5">
+                        <h3>Selecciona las categorías secundarias</h3>
+                        <div class="row" id="dynamic-container">
+                          <!-- Aquí se agregarán las columnas dinámicamente -->
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="image">Imagen de portada:</label>
@@ -91,11 +94,7 @@
                         <div class="form-group">
                             <label for="editCategory">Categoría:</label>
                             <select class="form-control" id="editCategory" name="editCategory">
-                                <!-- Aquí puedes agregar las opciones de categorías -->
-                                <option value="1">Accion y Aventura</option>
-                                <option value="2">Clásicos</option>
-                                <option value="3">Horror</option>
-                                <!-- ... -->
+                                <option selected value="">Selecciona la categoria...</option>
                             </select>
                         </div>
                         <div class="form-group">
