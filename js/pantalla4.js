@@ -18,7 +18,12 @@ $(document).ready(function() {
             } else {
                 $('#cantidad-libro').text('Estado: Agotado');
             }
-            $('#categoria-libro').text('Categoría: ' + libro.NombreCategoria);
+            $('#categoria-libro').text('Categorías: ' + libro.NombreCategoria);
+            // Mostrar las categorías secundarias (puedes adaptar esto según tu estructura de datos)
+            libro.CategoriasSecundarias.forEach(function(categoria) {
+                console.log(categoria);
+                $('#categoria-libro').append(', ' + categoria);
+            });
             $('#imagen-libro').attr('src', libro.imagen);
         },
         error: function(error) {

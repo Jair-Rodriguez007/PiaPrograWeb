@@ -12,9 +12,27 @@ if (isset($_GET['id'])) {
     // Si se proporciona un ID, selecciona solo el libro que corresponde a ese ID
     $id = $_GET['id'];
     //$sql = "SELECT * FROM Obra WHERE ID_obra = $id";
-    $sql = "SELECT Producto.*, Categoria.NombreCategoria FROM Producto INNER JOIN Categoria ON Producto.CategoriaPrincipal = Categoria.IdCategoria WHERE Producto.IdProducto = $id";
+    // Traer la información del producto y la categoría principal
+    $sql = "SELECT Producto.*, Categoria.NombreCategoria 
+            FROM Producto 
+            INNER JOIN Categoria ON Producto.CategoriaPrincipal = Categoria.IdCategoria 
+            WHERE Producto.IdProducto = $id";
     $result = $conexion->query($sql);
     $libro = $result->fetch_assoc();
+
+    // Traer las categorías secundarias
+    $sql_secundarias = "SELECT Categoria.NombreCategoria 
+                        FROM DetalleCategoriaSecundaria 
+                        INNER JOIN Categoria ON DetalleCategoriaSecundaria.IdCategoria = Categoria.IdCategoria 
+                        WHERE DetalleCategoriaSecundaria.IdProducto = $id";
+    $result_secundarias = $conexion->query($sql_secundarias);
+    $categorias_secundarias = [];
+    while ($row = $result_secundarias->fetch_assoc()) {
+        $categorias_secundarias[] = $row['NombreCategoria'];
+    }
+
+    // Añadir las categorías secundarias al array del libro
+    $libro['CategoriasSecundarias'] = $categorias_secundarias;
     // Insertar visualización del libro
     if (isset($_SESSION['id'])) {
         $IdUsuario = $_SESSION['id'];
