@@ -14,8 +14,17 @@ $(document).ready(function() {
                 lista.empty();
                 for (var i = 0; i < libros.length; i++) {
                     var libro = libros[i];
-                    var infoLibro = 'Compra ID: ' + libro.IdVenta + ', Usuario ID: ' + libro.IdUsuario + ', Obra ID: ' + libro.IdProducto + ', Fecha de compra: ' + libro.FechaCompra + ', Método de pago: ' + libro.NombreMetodo + ', Estado: ' + libro.estado + ', Cantidad: ' + libro.cantidad + ', Nombre: ' + libro.nombre + ', Título: ' + libro.titulo;
-                    lista.append('<li>' + infoLibro + '</li>');
+                    var infoLibro = '<div class="card">' +
+                                    '<h5 class="card-header">Compra ID: ' + libro.IdVenta + '</h5>' +
+                                    '<div class="card-body">' +
+                                        '<h5 class="card-title">Titulo: ' + libro.Titulo + '</h5>' +
+                                        '<p class="card-text">Fecha de compra: ' + libro.FechaVenta + '</p>' +
+                                        '<p class="card-text">Método de pago: ' + libro.NombreMetodo + '</p>' +
+                                        '<p class="card-text">Estado: ' + libro.NombreEstado + '</p>' +
+                                        '<p class="card-text">Nombre: ' + libro.Nombre + '</p>' +
+                                    '</div>' +
+                                '</div>';
+                    lista.append(infoLibro);
                 }
             },
             error: function() {
