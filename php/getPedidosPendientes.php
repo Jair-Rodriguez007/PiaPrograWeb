@@ -11,13 +11,11 @@ $idUsuario = $_SESSION['id'];
 
 // Consulta para obtener los pedidos pendientes
 //$sql = "SELECT * FROM compra WHERE estado = 'Pendiente'";
-$sql = "SELECT Venta.IdVenta, Producto.Titulo, DetalleVenta.Cantidad, Venta.FechaVenta, MetodoPago.NombreMetodo, Usuario.*
+$sql = "SELECT Venta.IdVenta, Venta.FechaVenta, MetodoPago.NombreMetodo, Usuario.*
         FROM Venta
-        INNER JOIN DetalleVenta ON Venta.IdVenta = DetalleVenta.IdVenta
-        INNER JOIN Producto ON DetalleVenta.IdProducto = Producto.IdProducto
         INNER JOIN MetodoPago ON Venta.MetodoPago = MetodoPago.IdMetodo
         INNER JOIN Usuario ON Venta.IdUsuario = Usuario.IdUsuario
-        WHERE Venta.IdUsuario = $idUsuario AND Venta.Estado = 1";
+        WHERE Venta.Estado = 1";
 
 $resultado = $conexion->query($sql);
 

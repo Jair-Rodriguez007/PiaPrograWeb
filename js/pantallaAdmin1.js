@@ -6,32 +6,41 @@ $.ajax({
         var contenedor = $('#pedidosPendientes');
         pedidos.forEach(function(pedido) {
             console.log(pedido);
-            var pedidoDiv = $('<div class="pedido"></div>');
-            pedidoDiv.append('<h5>Pedido #' + pedido.IdVenta +' '+ pedido.Titulo + '</h5>');
-            pedidoDiv.append('<p>#' + pedido.IdUsuario + ' ' + pedido.Nombre +' </p></br>');
-            pedidoDiv.append('<p>Método de pago: ' + pedido.NombreMetodo +' </p></br>');
+            var pedidoDiv = $(`
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-text">Pedido: ${pedido.IdVenta}</h5>
+                        <p class="card-text">Usuario: ${pedido.IdUsuario} ${pedido.Nombre}</p>
+                        <p class="card-text">Método de pago: ${pedido.NombreMetodo}</p>
+                    </div>
+                </div>
+            `);
             contenedor.append(pedidoDiv);
-
+        
             // Agrega un evento de clic a cada pedido
             pedidoDiv.click(function() {
                 var contenedorPedido = $('#contenedorPedido');
                 contenedorPedido.empty(); // Limpia el contenedor
                 contenedorPedido.append('<h2>Libros seleccionados</h2>');
-                contenedorPedido.append('<h5>Pedido #' + pedido.IdVenta +' '+ pedido.Titulo + '</h5>');
-                contenedorPedido.append('<p>#' + pedido.IdUsuario + ' ' + pedido.Nombre +' </p></br>');
-                contenedorPedido.append('<p>Método de pago: ' + pedido.NombreMetodo +' </p></br>');
-                var btnCancelar = $('<button class="btn btn-danger" id="btnCancelar">Cancelar pedido</button>');
-                var btnEntregado = $('<button class="btn btn-success" id="btnEntregado">Declarar como entregado</button>');
-                btnEntregado.data('IdVenta', pedido.IdVenta); // Almacena el ID_compra en el botón
-                btnCancelar.data('IdVenta', pedido.IdVenta); // Almacena el ID_compra en el botón
-                contenedorPedido.append(btnEntregado);
-                contenedorPedido.append(btnCancelar);
+                var btnPedido = $(`
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-text">Pedido: ${pedido.IdVenta}</h5>
+                        <p class="card-text">Usuario: ${pedido.IdUsuario} ${pedido.Nombre}</p>
+                        <p class="card-text">Método de pago: ${pedido.NombreMetodo}</p>
+                        <button class="btn btn-danger" id="btnCancelar" data-idventa="${pedido.IdVenta}">Cancelar pedido</button>
+                        <button class="btn btn-success" id="btnEntregado" data-idventa="${pedido.IdVenta}">Declarar como entregado</button>
+                    </div>
+                </div>
+            `);
+            contenedorPedido.append(btnPedido); // Clona y agrega la tarjeta del pedido
             });
-        });
+        });        
 
         // Asigna un controlador de eventos al botón "Declarar como entregado"
         $(document).on('click', '#btnEntregado', function() {
-            var IdVenta = $(this).data('IdVenta'); // Recupera el ID_compra del botón
+            var IdVenta = $(this).data('idventa'); // Recupera el ID_compra del botón
+            console.log(IdVenta);
             $.ajax({
                 url: '/PiaPrograWeb/php/entregarPedido.php',
                 type: 'POST',
@@ -49,7 +58,7 @@ $.ajax({
 
         // Asigna un controlador de eventos al botón "Cancelar Pedido"
         $(document).on('click', '#btnCancelar', function() {
-            var IdVenta = $(this).data('IdVenta'); // Recupera el ID_compra del botón
+            var IdVenta = $(this).data('idventa'); // Recupera el ID_compra del botón
             console.log(IdVenta);
             $.ajax({
                 url: '/PiaPrograWeb/php/cancelarPedido.php',
