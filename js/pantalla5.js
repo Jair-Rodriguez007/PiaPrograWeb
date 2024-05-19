@@ -38,7 +38,15 @@ function traerCarrito() {
         crossDomain:true
     }).done(function(result) {
         $(result).each(function(index) {
-            $('#carrito').append('<p>' + this.Titulo + ': ' + this.Cantidad + '</p><button class="eliminar" data-id="' + this.IdProducto + '">Eliminar</button>');
+            $('#carrito').append(`
+            <div class="card mb-3">
+                <div class="card-body">
+                    <p class="card-text">Producto: ${this.Titulo}</p>
+                    <p class="card-text">Cantidad: ${this.Cantidad}</p>
+                    <button class="eliminar" data-id="${this.IdProducto}">Eliminar</button>
+                </div>
+            </div>
+        `); // Inserta el comentario en una tarjeta de Bootstrap
         });
         console.log(result);
         //Botón eliminar
