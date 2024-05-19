@@ -71,8 +71,24 @@ $(document).ready(function() {
             console.log(comentario);
             comentario.forEach(comentario => {
                 console.log(comentario.TextoComentario); // Muestra el texto del comentario en la consola
-                $('#comentarios').append(`<p>${comentario.TextoComentario}</p>`); // Inserta el título del comentario
-                // Puedes agregar más elementos HTML aquí según tus necesidades
+                $('#comentarios').append(`
+                    <div class="card mb-3">
+                        <div class="card-body">
+                        <div class="d-flex w-100 justify-content-between align-items-center">
+                        <small>
+                            <span class="me-1"><i class="fas fa-calendar-alt"></i>${comentario.FechaComentario}</span>
+                        </small>
+                        </div>
+                            <p></p>
+                            <p class="card-text">${comentario.TextoComentario}</p>
+                            <div class="d-flex w-100 justify-content-between align-items-center">
+                            <small>
+                                <span class="me-1" id="txtUsuario"><i class="fa fa-user"></i>${comentario.Nombre}</span>
+                            </small>
+                            </div>
+                        </div>
+                    </div>
+                `); // Inserta el comentario en una tarjeta de Bootstrap
             });
         },
         error: function(error) {

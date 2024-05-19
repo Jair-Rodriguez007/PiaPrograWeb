@@ -5,3 +5,12 @@
     margin: auto;
     display: block;
 }
+
+#comentarios .card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+}
+
+#comentarios .card-body {
+    padding: 15px;
+}

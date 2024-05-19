@@ -11,8 +11,10 @@ $idProducto = $_GET['id'];
 
 // Consulta para obtener los pedidos pendientes
 //$sql = "SELECT * FROM compra WHERE estado = 'Pendiente'";
-$sql = "SELECT * FROM Comentario WHERE IdProducto = $idProducto";
-
+$sql = "SELECT Comentario.*, Usuario.Nombre 
+        FROM Comentario 
+        INNER JOIN Usuario ON Comentario.IdUsuario = Usuario.IdUsuario 
+        WHERE Comentario.IdProducto = $idProducto";
 
 $resultado = $conexion->query($sql);
 
