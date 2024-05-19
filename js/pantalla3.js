@@ -78,13 +78,28 @@ document.getElementById('search').addEventListener('input', function() {
             var data = JSON.parse(this.responseText);
             var suggestions = document.getElementById('suggestions');
             suggestions.innerHTML = '';
-            data.forEach(function(item) {
-                var a = document.createElement('a');
-                a.textContent = item.Titulo;
-                a.href = '/PiaPrograWeb/html/pantalla4.html?idLibro=' + item.IdProducto;
-                suggestions.appendChild(a);
-            });
+
+            if (data.length > 0 && searchQuery !== '') {
+                data.forEach(function(item) {
+                    var option = document.createElement('option');
+                    option.value = item.Titulo;
+                    option.dataset.id = item.IdProducto;
+                    suggestions.appendChild(option);
+                });
+            }
         }
     }
     xhr.send();
+});
+
+// Redirigir a la página del libro seleccionado
+document.getElementById('search').addEventListener('change', function() {
+    var searchQuery = this.value;
+    var options = document.querySelectorAll('#suggestions option');
+    options.forEach(function(option) {
+        if (option.value === searchQuery) {
+            var bookId = option.dataset.id;
+            window.location.href = '/PiaPrograWeb/html/pantalla4.html?idLibro=' + bookId;
+        }
+    });
 });
