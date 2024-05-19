@@ -1,24 +1,43 @@
-//var params = new URLSearchParams(window.location.search);
-//var idUsuario = params.get('id');
+function generarHTML(libro) {
+    var libroHTML = $('<div/>', { class: 'col-md-4' });
+    libroHTML.html(
+        '<h3><a href="pantalla4.html?idLibro=' + libro.IdProducto + '">' + libro.Titulo + '</a></h3>' +
+        '<img src="' + libro.Imagen + '" alt="' + libro.Titulo + '" class="book-image">' +
+        '<p>' + libro.Descripcion + '</p>' +
+        '<p>Precio: ' + libro.Precio + '</p>'
+    );
+    return libroHTML;
+}
+
+function agregarLibrosACarrusel(libros) {
+    var $carouselInner = $('#recientes');
+    var $currentItem;
+    var $row;
+
+    libros.forEach(function(libro, index) {
+        if (index % 3 === 0) {
+            $currentItem = $('<div/>', { class: 'carousel-item' + (index === 0 ? ' active' : '') });
+            $row = $('<div/>', { class: 'row' });
+            $carouselInner.append($currentItem);
+            $currentItem.append($row);
+        }
+        $row.append(generarHTML(libro));
+    });
+}
+
 $.ajax({
     url: '/PiaPrograWeb/php/getLibros.php',
     type: 'GET',
     dataType: 'json',
     success: function(data) {
-        var contenedorRecientes = $('#recientes');
         var contenedorVistos = $('#vistos');
 
         let recientes = data.recientes;
+        let vistos = data.vistos;
 
-        console.log(data); // Aquí estaba el error, debe ser 'data' en lugar de 'datos'
+        console.log(data);
 
-        for (let i = 0; i < recientes.length; i++) {
-            let libro = recientes[i];
-            var libroHTML = generarHTML(libro);
-            contenedorRecientes.append(libroHTML);
-        }
-
-        let vistos = data.vistos; // Aquí estaba el error, debe ser 'data.vistos' en lugar de 'data[vistos]'
+        agregarLibrosACarrusel(recientes);
 
         vistos.forEach(function(libro) {
             var libroHTML = generarHTML(libro);
@@ -30,17 +49,6 @@ $.ajax({
         alert('Hubo un error al cargar los libros. Por favor, inténtalo de nuevo más tarde.');
     }
 });
-
-function generarHTML(libro) {
-    var libroHTML = $('<div/>', { class: 'col-md-4' });
-    libroHTML.html(
-        '<h3><a href="' + 'pantalla4.html?idLibro=' + libro.IdProducto + '">' + libro.Titulo + '</a></h3>' +
-        '<p>' + libro.Descripcion + '</p>' +
-        '<p>Precio: ' + libro.Precio + '</p>' +
-        '<img src="' + libro.Imagen + '" alt="' + libro.Titulo + '">'
-    );
-    return libroHTML;
-}
 
 //Código para buscar libros
 

@@ -1,0 +1,61 @@
+.col-md-4 img {
+    max-width: 60%; /* Asegura que la imagen no desborde su contenedor */
+    height: auto;   /* Mantiene la proporción original de la imagen */
+    display: block; /* Elimina el espacio debajo de las imágenes */
+    margin: 0 auto; /* Centra la imagen horizontalmente */
+}
+
+h3, p {
+    text-align: center;
+}
+
+#recientes, #vistos {
+    margin-top: 0; /* Elimina márgenes superiores */
+    margin-bottom: 0; /* Elimina márgenes inferiores */
+    padding-top: 0; /* Elimina rellenos superiores */
+    padding-bottom: 0; /* Elimina rellenos inferiores */
+}
+
+.custom-container {
+    max-width: 80%; /* Ajusta este valor según sea necesario */
+    margin: 0 auto;
+}
+
+.section-title {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.content-row {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.book-image {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    object-fit: cover;
+}
+
+.carousel-item {
+    display: flex;
+    justify-content: center;
+}
+
+.carousel-item .col-md-4 {
+    flex: 0 0 33.3333%;
+    max-width: 33.3333%;
+}
+
+.carousel-control-prev, .carousel-control-next {
+    width: 5%;
+}
