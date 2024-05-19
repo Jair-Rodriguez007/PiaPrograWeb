@@ -9,8 +9,24 @@ function generarHTML(libro) {
     return libroHTML;
 }
 
-function agregarLibrosACarrusel(libros) {
+function agregarLibrosACarruselRecientes(libros) {
     var $carouselInner = $('#recientes');
+    var $currentItem;
+    var $row;
+
+    libros.forEach(function(libro, index) {
+        if (index % 3 === 0) {
+            $currentItem = $('<div/>', { class: 'carousel-item' + (index === 0 ? ' active' : '') });
+            $row = $('<div/>', { class: 'row' });
+            $carouselInner.append($currentItem);
+            $currentItem.append($row);
+        }
+        $row.append(generarHTML(libro));
+    });
+}
+
+function agregarLibrosACarruselVistos(libros) {
+    var $carouselInner = $('#vistos');
     var $currentItem;
     var $row;
 
@@ -30,19 +46,20 @@ $.ajax({
     type: 'GET',
     dataType: 'json',
     success: function(data) {
-        var contenedorVistos = $('#vistos');
+        //var contenedorVistos = $('#vistos');
 
         let recientes = data.recientes;
         let vistos = data.vistos;
 
         console.log(data);
 
-        agregarLibrosACarrusel(recientes);
+        agregarLibrosACarruselRecientes(recientes);
+        agregarLibrosACarruselVistos(vistos);
 
-        vistos.forEach(function(libro) {
+        /*vistos.forEach(function(libro) {
             var libroHTML = generarHTML(libro);
             contenedorVistos.append(libroHTML);
-        });
+        });*/
     },
     error: function(error) {
         console.log(error);
