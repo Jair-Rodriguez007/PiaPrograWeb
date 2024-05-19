@@ -68,6 +68,7 @@ $(document).ready(function() {
         },
         dataType: 'json',
         success: function(comentario) {
+            console.log(comentario);
             comentario.forEach(comentario => {
                 console.log(comentario.TextoComentario); // Muestra el texto del comentario en la consola
                 $('#comentarios').append(`<p>${comentario.TextoComentario}</p>`); // Inserta el título del comentario

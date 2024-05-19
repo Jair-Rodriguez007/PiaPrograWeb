@@ -1,0 +1,7 @@
+#imagen-libro {
+    max-width: 100%;
+    height: auto;
+    max-height: 300px; /* Ajusta la altura máxima según sea necesario */
+    margin: auto;
+    display: block;
+}
