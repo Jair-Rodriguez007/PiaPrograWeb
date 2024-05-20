@@ -12,3 +12,63 @@
     overflow-y: auto;
     padding-right: 15px; /* Para que el contenido no quede oculto detrás de la barra de desplazamiento */
 }
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to right, #f9f9f9, #e3f2fd);
+    color: #333;
+}
+
+.navbar {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    font-weight: 600;
+}
+
+.custom-container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+}
+
+.card {
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    background-color: #007bff;
+}
+
+.section-title {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.section-title:after {
+    content: '';
+    width: 50px;
+    height: 3px;
+    background: #007bff;
+    display: block;
+    margin: 10px auto 0;
+}
+
+.divider {
+    height: 2px;
+    background: #007bff;
+    margin: 40px 0;
+}
+
+#btnConfirmar {
+    margin-top: 10px;
+}

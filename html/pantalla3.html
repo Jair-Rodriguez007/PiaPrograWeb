@@ -4,86 +4,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/PiaPrograWeb/css/pantalla3.css">
-    <!--Importamos el CSS de Bootstrap-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <title>Listado de libros - Biblioteca FIME</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="index.html">Biblioteca FIME</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="/PiaPrograWeb/html/pantalla6.html">Perfil</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/PiaPrograWeb/html/pantalla5.html">Carrito</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Facebook</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Instagram</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Maps</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="index.html">Biblioteca FIME</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/PiaPrograWeb/html/pantalla6.html">Perfil</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/PiaPrograWeb/html/pantalla5.html">Carrito</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Facebook</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Instagram</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Maps</a>
+            </li>
+        </ul>
+    </div>
+</nav>
 
-    <div class="container">
-        <h2>Buscar libros</h2>
-        <div class="form-group">
-            <input type="text" class="form-control" id="search" name="search" placeholder="Buscar libros..." list="suggestions">
-            <datalist id="suggestions"></datalist>
-            <!--<div id="suggestions" class="suggestions-box"></div>-->
+<div class="container">
+    <h2>Buscar libros</h2>
+    <div class="form-group">
+        <input type="text" class="form-control" id="search" name="search" placeholder="Buscar libros..." list="suggestions">
+        <datalist id="suggestions"></datalist>
+    </div>
+    <div class="divider"></div>
+    <div class="container custom-container">
+        <h2 class="section-title">Novedades</h2>
+        <div id="novedadesCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner" id="recientes">
+                <!-- Aquí se agregarán los libros de la sección de novedades -->
+            </div>
+            <a class="carousel-control-prev" href="#novedadesCarousel" role="button" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </a>
+            <a class="carousel-control-next" href="#novedadesCarousel" role="button" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </a>
         </div>
-        <hr>
-        <div class="container custom-container">
-            <h2 class="section-title">Novedades</h2>
-            <div id="novedadesCarousel" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner" id="recientes">
-                    <!-- Aquí se agregarán los libros de la sección de novedades -->
-                </div>
-                <a class="carousel-control-prev" href="#novedadesCarousel" role="button" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only"></span>
-                </a>
-                <a class="carousel-control-next" href="#novedadesCarousel" role="button" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only"></span>
-                </a>
+        <div class="divider"></div>
+        <h2 class="section-title">Categorías destacadas</h2>
+        <div id="vistosCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner" id="vistos">
+                <!-- Aquí se agregarán los libros de la sección de categorías destacadas -->
             </div>
-            <hr>
-            <h2 class="section-title">Categorías destacadas</h2>
-            <div id="vistosCarousel" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner" id="vistos">
-                    <!-- Aquí se agregarán los libros de la sección de categorías destacadas -->
-                </div>
-                <a class="carousel-control-prev" href="#vistosCarousel" role="button" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only"></span>
-                </a>
-                <a class="carousel-control-next" href="#vistosCarousel" role="button" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only"></span>
-                </a>
-            </div>
+            <a class="carousel-control-prev" href="#vistosCarousel" role="button" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </a>
+            <a class="carousel-control-next" href="#vistosCarousel" role="button" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </a>
         </div>
     </div>
-    <!--Importamos JQuery-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
         integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-        crossorigin="anonymous"referrerpolicy="no-referrer"></script>
-    <!--Importamos el JS de Bootstrap-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
-    <script src="/PiaPrograWeb/js/pantalla3.js"></script>    
+<script src="/PiaPrograWeb/js/pantalla3.js"></script>
 </body>
 </html>

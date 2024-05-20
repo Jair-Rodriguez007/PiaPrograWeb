@@ -7,13 +7,21 @@ $('#btnBuscar').click(function(event) {
         console.log(books);
 
         for (var i = 0; i < books.length; i++) {
-            var book = books[i];
-            console.log(book);
-            var bookElement = $('<div>').text(book.Titulo);
-            var editButton = $('<button>').text('Editar').addClass('btn btn-primary edit-button').attr('data-book-id', book.IdProducto).attr('data-toggle', 'modal').attr('data-target', '#editBookModal');
-            bookElement.append(editButton);
-            $('#divContenedor').append(bookElement);
-        }
+          var book = books[i];
+          console.log(book);
+          var bookElement = $('<div>').addClass('card mb-3').append(
+              $('<div>').addClass('card-body').append(
+                  $('<h5>').addClass('card-text').text(book.Titulo),
+                  $('<button>').text('Editar').addClass('btn btn-primary edit-button').attr({
+                      'data-book-id': book.IdProducto,
+                      'data-toggle': 'modal',
+                      'data-target': '#editBookModal'
+                  })
+              )
+          );
+          $('#divContenedor').append(bookElement);
+      }
+      
 
         $(document).on('click', '.edit-button', function() {
             var bookId = $(this).attr('data-book-id');
@@ -124,4 +132,9 @@ $(document).ready(function() {
         $('#secondaryCategories').val(selectedCategories.join(','));
     });
   });
+  
+  $('#editBookModal').on('hidden.bs.modal', function (e) {
+    $('body').removeClass('modal-open');
+    $('.modal-backdrop').remove();
+  })
   

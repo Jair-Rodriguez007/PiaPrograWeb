@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/PiaPrograWeb/css/pantallaAdmin2.css">
     <!--Importamos el CSS de Bootstrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <title>Historial de pedidos - Biblioteca FIME</title>
 </head>
 <body>
@@ -32,7 +34,7 @@
         <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Logout</button>
     </nav>
     <div class="container">
-        <h2>Historial de pedidos</h2>
+        <h2 class="section-title">Historial de pedidos</h2>
         <form action="/PiaPrograWeb/php/buscarCompras.php" method="get">
             <div class="form-group">
                 <label for="start-date">Fecha de inicio:</label>
@@ -48,11 +50,11 @@
             </div>
             <button type="submit" class="btn btn-primary">Buscar</button>
         </form>
-        <hr>
-        <h2>Ventas registradas</h2>
-        <ul id="lista-libros">
-            <!-- Aquí se agregarán los libros encontrados -->
-        </ul>
+        <div class="divider"></div>
+        <h2 class="section-title">Ventas registradas</h2>
+        <div id="lista-libros" class="overflow-auto">
+            <!-- Aquí se agregarán los pedidos -->
+        </div>
     </div>
     <!--Importamos JQuery-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"

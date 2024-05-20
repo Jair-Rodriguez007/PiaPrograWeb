@@ -1,8 +1,57 @@
-.col-md-4 img {
-    max-width: 60%; /* Asegura que la imagen no desborde su contenedor */
-    height: auto;   /* Mantiene la proporción original de la imagen */
-    display: block; /* Elimina el espacio debajo de las imágenes */
-    margin: 0 auto; /* Centra la imagen horizontalmente */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to right, #f9f9f9, #e3f2fd);
+    color: #333;
+}
+
+.navbar {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    font-weight: 600;
+}
+
+.custom-container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+}
+
+.card {
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    background-color: #007bff;
+}
+
+.section-title {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 30px;
+}
+
+.section-title:after {
+    content: '';
+    width: 50px;
+    height: 3px;
+    background: #007bff;
+    display: block;
+    margin: 10px auto 0;
+}
+
+.divider {
+    height: 2px;
+    background: #007bff;
+    margin: 40px 0;
 }
 
 h3, p {
@@ -16,27 +65,11 @@ h3, p {
     padding-bottom: 0; /* Elimina rellenos inferiores */
 }
 
-.custom-container {
-    max-width: 80%; /* Ajusta este valor según sea necesario */
-    margin: 0 auto;
-}
-
-.section-title {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-.content-row {
-    margin-top: 0;
-    margin-bottom: 0;
-    padding-top: 0;
-    padding-bottom: 0;
-}
-
-hr {
-    margin-top: 20px;
-    margin-bottom: 20px;
+.col-md-4 img {
+    max-width: 60%; /* Asegura que la imagen no desborde su contenedor */
+    height: auto;   /* Mantiene la proporción original de la imagen */
+    display: block; /* Elimina el espacio debajo de las imágenes */
+    margin: 0 auto; /* Centra la imagen horizontalmente */
 }
 
 .book-image {

@@ -1,5 +1,5 @@
 function generarHTML(libro) {
-    var libroHTML = $('<div/>', { class: 'col-md-4' });
+    var libroHTML = $('<div/>', { class: 'col-md-4 card' });
     libroHTML.html(
         '<h3><a href="pantalla4.html?idLibro=' + libro.IdProducto + '">' + libro.Titulo + '</a></h3>' +
         '<img src="' + libro.Imagen + '" alt="' + libro.Titulo + '" class="book-image">' +

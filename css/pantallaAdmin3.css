@@ -20,25 +20,10 @@ h2 {
     margin-top: 30px;
 }
 
-.card {
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.divider {
-    height: 2px;
-    background: #007bff;
-    margin: 40px 0;
-}
-
 .section-title {
     position: relative;
     display: inline-block;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 }
 
 .section-title:after {
@@ -50,23 +35,6 @@ h2 {
     margin: 10px auto 0;
 }
 
-.form-group label {
-    font-weight: 600;
-}
-
-#imagen-libro {
-    max-width: 100%;
-    height: auto;
-    max-height: 300px;
-    margin: auto;
-    display: block;
-}
-
-#comentarios .card {
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-}
-
-#comentarios .card-body {
-    padding: 15px;
+.btn-primary {
+    margin-top: 10px;
 }
