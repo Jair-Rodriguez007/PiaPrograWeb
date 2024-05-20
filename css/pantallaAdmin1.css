@@ -15,3 +15,15 @@
 #contenedorPedido .card-body {
     padding: 15px;
 }
+
+#pedidosPendientes {
+    max-height: 550px; /* Ajusta esta altura según tus necesidades */
+    overflow-y: auto;
+    padding-right: 15px; /* Para que el contenido no quede oculto detrás de la barra de desplazamiento */
+}
+
+#contenedorPedido {
+    max-height: 550px; /* Ajusta esta altura según tus necesidades */
+    overflow-y: auto;
+    padding-right: 15px; /* Para que el contenido no quede oculto detrás de la barra de desplazamiento */
+}

@@ -21,7 +21,6 @@ $.ajax({
             pedidoDiv.click(function() {
                 var contenedorPedido = $('#contenedorPedido');
                 contenedorPedido.empty(); // Limpia el contenedor
-                contenedorPedido.append('<h2>Libros seleccionados</h2>');
                 var btnPedido = $(`
                 <div class="card mb-3">
                     <div class="card-body">
