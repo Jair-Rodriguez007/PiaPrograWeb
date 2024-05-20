@@ -62,7 +62,7 @@ if (isset($_GET['id'])) {
     echo json_encode($libro);
 } else {
     // Obtén los libros más recientes
-    $sql_recientes = "SELECT * FROM Producto ORDER BY FechaAgregado DESC LIMIT 10";
+    $sql_recientes = "SELECT * FROM Producto ORDER BY FechaAgregado DESC LIMIT 9";
     $result_recientes = $conexion->query($sql_recientes);
     $libros_recientes = array();
     if ($result_recientes->num_rows > 0) {
@@ -72,7 +72,7 @@ if (isset($_GET['id'])) {
     }
 
     // Obtén los libros más vistos
-    $sql_vistos = "SELECT Producto.*, COUNT(*) as visualizaciones FROM Producto JOIN VisualizacionLibro ON Producto.IdProducto = VisualizacionLibro.IdProducto GROUP BY Producto.IdProducto ORDER BY visualizaciones DESC LIMIT 1";
+    $sql_vistos = "SELECT Producto.*, COUNT(*) as visualizaciones FROM Producto JOIN VisualizacionLibro ON Producto.IdProducto = VisualizacionLibro.IdProducto GROUP BY Producto.IdProducto ORDER BY visualizaciones DESC LIMIT 9";
     $result_vistos = $conexion->query($sql_vistos);
     $libros_vistos = array();
     if ($result_vistos->num_rows > 0) {
