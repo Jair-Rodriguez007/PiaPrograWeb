@@ -1,0 +1,5 @@
+#historial {
+    max-height: 500px; /* Ajusta esta altura según tus necesidades */
+    overflow-y: auto;
+    padding-right: 15px; /* Para que el contenido no quede oculto detrás de la barra de desplazamiento */
+}
