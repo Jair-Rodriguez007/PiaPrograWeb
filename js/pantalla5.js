@@ -75,8 +75,27 @@ function traerCarrito() {
     });
 }
 
+function traerUsuario() {
+    $.ajax({
+        url:"/PiaPrograWeb/php/getUsuarios.php",
+        type:'GET',
+        dataType:'json',
+        crossDomain:true
+    }).done(function(result) {
+        $(result).each(function(index, item) {
+            console.log(item.Nombre);
+            $("#name").append(`<input type="text" class="form-control" id="name" name="name" placeholder="${item.Nombre}" required readonly>`);
+            $("#correo").append(`<input type="text" class="form-control" id="correo" name="correo" placeholder="${item.CorreoElectronico}" required readonly>`);
+        });
+        console.log(result);
+    }).fail(function(xhr, status, error) {
+        alert(error)
+    });
+}
+
 $(document).ready(function() {
     traerDomicilio();
     traerTarjeta();
     traerCarrito();
+    traerUsuario();
 });
