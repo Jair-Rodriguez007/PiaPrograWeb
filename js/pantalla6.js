@@ -6,7 +6,19 @@ function traerPedidos() {
         crossDomain:true
     }).done(function(result) {
         $(result).each(function(index) {
-            $('#historial').append('<p>' + this.Titulo + ': ' + this.Cantidad + ' ('+this.FechaVenta+')</p>');
+            $('#historial').append(`
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <p class="card-text">Producto: ${this.Titulo}</p>
+                        <p class="card-text">Cantidad: ${this.Cantidad}</p>
+                        <div class="d-flex w-100 justify-content-between align-items-center">
+                        <small>
+                            <span class="me-1"><i class="fas fa-calendar-alt"></i> ${this.FechaVenta}</span>
+                        </small>
+                        </div>
+                    </div>
+                </div>
+            `); // Inserta el comentario en una tarjeta de Bootstrap
         });
         console.log(result);
     }).fail(function(xhr, status, error) {
