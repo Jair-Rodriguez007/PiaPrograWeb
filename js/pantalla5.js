@@ -48,6 +48,7 @@ function traerCarrito() {
             </div>
         `); // Inserta el comentario en una tarjeta de Bootstrap
         });
+        console.log("result es: ");
         console.log(result);
         //Botón eliminar
         $('.eliminar').click(function() {

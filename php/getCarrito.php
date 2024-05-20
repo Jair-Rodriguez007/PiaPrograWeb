@@ -26,7 +26,7 @@ $sql = "SELECT Carrito.*, Producto.*
         header('Content-Type: application/json');
         echo json_encode($carrito);
     } else {
-        echo "0 results";
+        echo json_encode(array());
     }
 $conexion->close();
 ?>

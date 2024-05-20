@@ -49,6 +49,7 @@ $.ajax({
                 },
                 success: function(response) {
                     alert('El estado del pedido ha sido actualizado a entregado');
+                    location.reload(true);
                 },
                 error: function() {
                     alert('Hubo un error al actualizar el estado del pedido');
@@ -66,6 +67,7 @@ $.ajax({
                 data: { 'IdVenta': IdVenta },
                 success: function(response) {
                     alert('El estado del pedido ha sido cambiado a cancelado');
+                    location.reload(true);
                 },
                 error: function() {
                     alert('Hubo un error al cancelar el pedido');
