@@ -21,7 +21,7 @@ $id = $_SESSION['id'];
         header('Content-Type: application/json');
         echo json_encode($tarjetas);
     } else {
-        echo "0 results";
+        echo json_encode(array());
     }
 $conexion->close();
 ?>

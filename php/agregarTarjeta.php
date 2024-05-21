@@ -24,5 +24,6 @@
         } else {
             echo "Error: " . $sql . "<br>" . $conexion->error;
         }
+        header('Location: /PiaPrograWeb/html/pantalla6.html');
     }
 ?>
