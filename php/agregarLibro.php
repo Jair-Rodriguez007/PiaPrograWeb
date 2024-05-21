@@ -8,7 +8,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $categoria = intval($_POST['category']);
     $cantidad = $_POST['quantity'];
     $fechaAgregado = date('Y-m-d H:i:s');
-    $imagen = 'imagen132.jpg'; // Asegúrate de ajustar esto para manejar correctamente la subida de imágenes
+
+    // Manejar la subida de la imagen
+    if ($_FILES['image']['error'] === UPLOAD_ERR_OK) {
+        $imageTmpPath = $_FILES['image']['tmp_name'];
+        $imageName = basename($_FILES['image']['name']);
+        $imageDir = 'C:/xampp/htdocs/PiaPrograWeb/img/'; // Asegúrate de actualizar esta ruta
+        $imagePath = $imageDir . $imageName;
+
+        // Ruta relativa para guardar en la base de datos
+        $relativeImagePath = '/PiaPrograWeb/img/' . $imageName;
+
+        // Mueve el archivo subido a la ubicación deseada
+        if (move_uploaded_file($imageTmpPath, $imagePath)) {
+            $imagen = $relativeImagePath;
+        } else {
+            echo "Error al mover el archivo subido.";
+            exit();
+        }
+    }
 
     $conexion = conexionDb::conexion();
     if ($conexion->connect_error) {
